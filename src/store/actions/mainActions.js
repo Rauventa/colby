@@ -57,7 +57,6 @@ export function renderData() {
 export function handleChange(event) {
     return (dispatch) => {
         const image = event.target.files[0];
-        console.log(image)
         if (image) {
 
             dispatch(loadImgSuccess(image));

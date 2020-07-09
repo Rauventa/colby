@@ -378,6 +378,17 @@
     }
   }
 
+  .AdminEnter, .ModerEnter {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    form {
+      width: 50%;
+    }
+  }
   .AdminPanel {
     &__header {
       padding: 1rem 3rem;
@@ -387,6 +398,15 @@
       p {
         margin-bottom: 0;
         font-weight: 600;
+      }
+    }
+  }
+
+  .Dashboard {
+    padding: 2rem;
+    &__stats {
+      .ant-progress, .ant-row {
+        margin-bottom: 4rem;
       }
     }
   }

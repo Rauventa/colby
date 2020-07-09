@@ -11,6 +11,7 @@
     "bootstrap": "^4.5.0",
     "firebase": "^7.15.5",
     "firebase-cli": "^1.2.0",
+    "firebase-tools": "^8.4.3",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",

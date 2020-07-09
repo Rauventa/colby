@@ -10,6 +10,9 @@ import AdminPanel from "../containers/admin/AdminPanel";
 import CatalogItemPage from "../containers/content/catalog/CatalogItemPage";
 import Cart from "../containers/content/catalog/Cart";
 import Cabinet from "../containers/user/Cabinet";
+import Dashboard from "../containers/content/Dashboard";
+import ModerEnter from "../containers/moderator/ModerEnter";
+import ModerPanel from "../containers/moderator/ModerPanel";
 
 export const Router = () => {
     return (
@@ -50,9 +53,26 @@ export const Router = () => {
             <Route path={'/admin/panel'}>
                 <AdminPanel />
             </Route>
+
+            {/*Moderator routes*/}
+
+            <Route path={'/moderator'} exact>
+                <ModerEnter />
+            </Route>
+            <Route path={'/moderator/panel'}>
+                <ModerPanel />
+            </Route>
+
             {/*User routes*/}
+
             <Route path={'/cabinet'}>
                 <Cabinet />
+            </Route>
+
+            {/*Other routes*/}
+
+            <Route path={'/dashboard'}>
+                <Dashboard />
             </Route>
         </Switch>
     )
