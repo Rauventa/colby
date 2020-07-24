@@ -26,6 +26,11 @@ class Catalog extends Component {
         }
     };
 
+    setColor = value => {
+        const check = this.props.items.filter(item => item.color === value)
+        console.log(check)
+    };
+
     render() {
         const { Option } = Select;
         const { Search } = Input;
@@ -40,7 +45,7 @@ class Catalog extends Component {
                             <Option value="Run">Run</Option>
                             <Option value="Casual">Casual</Option>
                         </Select>
-                        <Select defaultValue="Color">
+                        <Select defaultValue="Color" onChange={this.setColor}>
                             <Option value="Black">Black</Option>
                             <Option value="White">White</Option>
                             <Option value="Red">Red</Option>

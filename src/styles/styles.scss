@@ -9,15 +9,28 @@
 
 .btn-primary {
   background-color: #3AAFA9 !important;
-  border: 1px solid #3AAFA9 !important;
+  border: 2px solid #3AAFA9 !important;
   border-radius: 100px !important;
   color: #fff;
   padding: 0.5rem 2rem !important;
   &:hover {
     background-color: #2b7a78 !important;
-    border: 1px solid #2b7a78 !important;
+    border: 2px solid #2b7a78 !important;
   }
 }
+
+.btn-secondary {
+  background-color: transparent !important;
+  border: 2px solid #3AAFA9 !important;
+  border-radius: 100px !important;
+  color: #3AAFA9 !important;
+  padding: 0.5rem 2rem !important;
+  &:hover {
+    background-color: #3AAFA9 !important;
+    color: #fff !important;
+  }
+}
+
 .ant-scroll-number {
   width: 22px !important;
 }
@@ -73,15 +86,20 @@
 
 .App {
   .Landing {
-    min-height: 100vh;
-    width: 100%;
-    background: url('../img/main_back.jpg') center (center/cover) no-repeat;
-    padding: 5rem;
-    &__content {
+    &__head {
+      min-height: 100vh;
+      width: 100%;
+      padding: 5rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
+      background: url('../img/main_back.jpg') center (center/cover) no-repeat;
+
+      &_buttons {
+        display: flex;
+        align-items: center;
+      }
       h1 {
         font-size: 70px;
         font-weight: 900;
@@ -97,6 +115,65 @@
         font-size: 30px;
         color: #222629;
         margin-bottom: 2rem;
+      }
+    }
+
+    &__content {
+      min-height: 100vh;
+      width: 100%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+
+      .who {
+        margin-bottom: 4rem;
+
+        &__header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 2rem;
+
+          h1 {
+            margin-right: 2rem;
+          }
+        }
+
+        &__pics {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 2rem;
+
+          img {
+            width: calc(50% - 2rem);
+          }
+        }
+      }
+
+      .why {
+        margin-bottom: 4rem;
+        h1 {
+          margin-bottom: 2rem;
+        }
+
+        li {
+          list-style: none;
+        }
+      }
+
+      .divider {
+        width: 100%;
+        min-height: 20vh;
+        background-color: rgba(0,0,0, 0.2);
+        padding: 2rem;
+
+        h3 {
+          margin-bottom: 1rem;
+        }
       }
     }
   }
