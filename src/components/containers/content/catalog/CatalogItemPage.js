@@ -26,7 +26,7 @@ class CatalogItemPage extends Component {
                 <CatalogHeader />
                 <Breadcrumb style={{padding: '2rem 5rem'}}>
                     <Breadcrumb.Item>
-                        <NavLink to={'/catalog'}>Catalog</NavLink>
+                        <NavLink to={'/catalog'}>Каталог</NavLink>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>{data.name}</Breadcrumb.Item>
                 </Breadcrumb>
@@ -41,7 +41,7 @@ class CatalogItemPage extends Component {
                             <div className="CatalogItemPage__content_info container-fluid">
                                 <div className="row">
                                     <div className="col-xl-8">
-                                        <h5>{data.type} shoes</h5>
+                                        <h5>{data.type}</h5>
                                         <h1>{data.name}</h1>
                                     </div>
                                     <div className="col-xl-4">
@@ -54,9 +54,9 @@ class CatalogItemPage extends Component {
                                         }
                                     </div>
                                 </div>
-                                <Button type={'primary'} onClick={this.onCartAdd}>Add to cart</Button>
+                                <Button type={'primary'} onClick={this.onCartAdd}>Добавить в корзину</Button>
                                 <div className="desc">
-                                    <p className={'item-desc'}>{data.type} shoes, {data.color} color, {data.size} size</p>
+                                    <p className={'item-desc'}>{data.type}, {data.color} цвет, {data.size} размер</p>
                                 </div>
                             </div>
                         </div>

@@ -39,22 +39,22 @@ class Catalog extends Component {
                 <CatalogHeader />
                 <div className="Catalog__filters">
                     <div className="Catalog__filters_tabs">
-                        <Select defaultValue="Type">
-                            <Option value="Basketball">Basketball</Option>
-                            <Option value="Football">Football</Option>
-                            <Option value="Run">Run</Option>
-                            <Option value="Casual">Casual</Option>
+                        <Select defaultValue="Тип">
+                            <Option value="Basketball">Баскетбол</Option>
+                            <Option value="Football">Футбол</Option>
+                            <Option value="Run">Бег</Option>
+                            <Option value="Casual">Повседневные</Option>
                         </Select>
-                        <Select defaultValue="Color" onChange={this.setColor}>
-                            <Option value="Black">Black</Option>
-                            <Option value="White">White</Option>
-                            <Option value="Red">Red</Option>
-                            <Option value="Orange">Orange</Option>
-                            <Option value="Grey">Grey</Option>
-                            <Option value="Green">Green</Option>
-                            <Option value="Yellow">Yellow</Option>
+                        <Select defaultValue="Цвет" onChange={this.setColor}>
+                            <Option value="Black">Черный</Option>
+                            <Option value="White">Белый</Option>
+                            <Option value="Red">Красный</Option>
+                            <Option value="Orange">Оранжевый</Option>
+                            <Option value="Grey">Серый</Option>
+                            <Option value="Green">Зеленый</Option>
+                            <Option value="Yellow">Желтый</Option>
                         </Select>
-                        <Select defaultValue="Size">
+                        <Select defaultValue="Размер">
                             <Option value="38">38</Option>
                             <Option value="39">39</Option>
                             <Option value="40">40</Option>
@@ -67,7 +67,7 @@ class Catalog extends Component {
                     </div>
                     <div className="Catalog__filters_search">
                         <Search
-                            placeholder="Search sneakers"
+                            placeholder="Поиск кроссовок"
                             onChange={this.searchHandler}
                         />
                     </div>
@@ -75,19 +75,25 @@ class Catalog extends Component {
                 <div className="Catalog__content container-fluid">
                     <div className="row">
                         {this.props.items.filter(this.searchFilter(this.state.term)).map((item, index) => {
-                            return (
-                                <CatalogItem
-                                    key={item+index}
-                                    id={item.key}
-                                    name={item.name}
-                                    sale={item.sale}
-                                    type={item.type}
-                                    color={item.color}
-                                    size={item.size}
-                                    price={item.price}
-                                    url={item.url}
-                                />
-                            )
+                            if (this.props.items.length !== 0) {
+                                return (
+                                    <CatalogItem
+                                        key={item+index}
+                                        id={item.key}
+                                        name={item.name}
+                                        sale={item.sale}
+                                        type={item.type}
+                                        color={item.color}
+                                        size={item.size}
+                                        price={item.price}
+                                        url={item.url}
+                                    />
+                                )
+                            } else {
+                                return (
+                                    <p>Тут пока-что ничего нет</p>
+                                )
+                            }
                         })}
                     </div>
                 </div>

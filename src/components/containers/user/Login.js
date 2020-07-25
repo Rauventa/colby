@@ -47,30 +47,30 @@ class Login extends Component {
 
                     </Col>
                     <Col lg={6} className={'Login__main_form'}>
-                        <h3>Welcome back!</h3>
+                        <h3>Добро пожаловать обратно!</h3>
                         <Form>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Enter email" onChange={this.setEmailHandler} />
+                                <Form.Control type="email" placeholder="Введите email" onChange={this.setEmailHandler} />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="Password" onChange={this.setPasswordHandler} />
+                                <Form.Control type="password" placeholder="Введите пароль" onChange={this.setPasswordHandler} />
                             </Form.Group>
                             <Button variant="success" type="submit" onClick={this.loginHandler}>
-                                Login
+                                Войти
                             </Button>
                             <hr/>
                             <Button disabled variant="danger" type="submit" style={{marginBottom: '20px'}}>
-                                Login with Google
+                                Войте через Google
                             </Button>
                             <Button disabled variant="primary" type="submit">
-                                Login with Facebook
+                                Войти через Facebook
                             </Button>
                             <hr/>
                             <NavLink to={'/reset'} exact>
-                                Forgot password?
+                                Забыли пароль?
                             </NavLink>
                             <NavLink to={'/reg'}>
-                                Create an Account!
+                                Еще нет аккаунта? Зарегестрируйтесь!
                             </NavLink>
                         </Form>
                     </Col>

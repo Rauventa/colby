@@ -61,9 +61,9 @@ class Cart extends Component {
                 <CatalogHeader />
                 <Breadcrumb style={{padding: '2rem 2rem 0 2rem'}}>
                     <Breadcrumb.Item>
-                        <NavLink to={'/catalog'}>Catalog</NavLink>
+                        <NavLink to={'/catalog'}>Каталог</NavLink>
                     </Breadcrumb.Item>
-                    <Breadcrumb.Item>Cart</Breadcrumb.Item>
+                    <Breadcrumb.Item>Корзина</Breadcrumb.Item>
                 </Breadcrumb>
                 {this.props.cart.length !== 0 ? this.props.cart.map((item, index) => {
                     return (
@@ -72,7 +72,7 @@ class Cart extends Component {
                                     <img src={item.url} alt=""/>
                                     <div className="Cart__item_content">
                                         <p>{item.name}</p>
-                                        <p>{item.type} shoes, {item.color} color, {item.size} size</p>
+                                        <p>{item.type}, {item.color} цвет, {item.size} размер</p>
                                         {item.sale === '0' ?
                                             <h5>{item.price}$</h5> :
                                             <h5>{Math.round(item.price-(item.price*(item.sale/100)))}$</h5>
@@ -82,14 +82,14 @@ class Cart extends Component {
                                 </div>
                             </div>
                     )
-                }) : <h3 style={{padding: '2rem'}}>Nothing here</h3>}
+                }) : <h3 style={{padding: '2rem'}}>Тут еще ничего нет</h3>}
 
                 {this.props.cart.length !== 0 ?
                     <>
-                        <Radio style={{padding: '1rem 2rem'}}>I confirm all my shops</Radio>
+                        <Radio style={{padding: '1rem 2rem'}}>Я подтверждаю свои покупки</Radio>
                         <div className="Cart__footer">
-                            <h5>Total price: {total}$</h5>
-                            <Button type={'primary'} onClick={this.takeOrder}>Buy sneakers</Button>
+                            <h5>Полная цена: {total}$</h5>
+                            <Button type={'primary'} onClick={this.takeOrder}>Купить кроссовки</Button>
                         </div>
                     </> : null
                 }
@@ -97,11 +97,11 @@ class Cart extends Component {
                 {this.state.showOrder === true ?
                     <Result
                         status="success"
-                        title="You successfully buy the best sneakers!"
-                        subTitle={`Order price: ${total}$`}
+                        title="Вы успешно купили свои лучшие кроссовки!"
+                        subTitle={`Цена заказа: ${total}$`}
                         extra={[
-                            <NavLink to={'/catalog'}><Button type="primary">Go to catalog</Button></NavLink>,
-                            <NavLink to={'/cabinet'}><Button>Profile</Button></NavLink>,
+                            <NavLink to={'/catalog'}><Button type="primary">Перейти в каталог</Button></NavLink>,
+                            <NavLink to={'/cabinet'}><Button>Профиль</Button></NavLink>,
                         ]}
                     /> : null
                 }

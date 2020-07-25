@@ -72,49 +72,49 @@ class Registration extends Component {
                 <div className="Registration__main row">
                     <Col lg={5} className={'Registration__main_img'}/>
                     <Col lg={7} className={'Registration__main_form'}>
-                        <h3>Create an account!</h3>
+                        <h3>Создайте аккаунт!</h3>
                         <Form>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="name">
-                                    <Form.Control type="text" placeholder="First name" onChange={this.setNameHandler}/>
+                                    <Form.Control type="text" placeholder="Имя" onChange={this.setNameHandler}/>
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="surname">
-                                    <Form.Control type="text" placeholder="Last name" onChange={this.setSurnameHandler} />
+                                    <Form.Control type="text" placeholder="Фамилия" onChange={this.setSurnameHandler} />
                                 </Form.Group>
                             </Form.Row>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Enter E-mail" onChange={this.setEmailHandler} />
+                                <Form.Control type="email" placeholder="E-mail" onChange={this.setEmailHandler} />
                             </Form.Group>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formBasicPassword">
-                                    <Form.Control type="password" placeholder="Password" onChange={this.setPasswordHandler} />
+                                    <Form.Control type="password" placeholder="Пароль" onChange={this.setPasswordHandler} />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formBasicPassword">
-                                    <Form.Control type="password" placeholder="Repeat Password" onChange={this.repeatPasswordHandler} />
+                                    <Form.Control type="password" placeholder="Повторите пароль" onChange={this.repeatPasswordHandler} />
                                 </Form.Group>
                             </Form.Row>
                             {(this.state.name === '' || this.state.surname === '' || this.state.email === '' || this.state.password === '' || this.state.repeatPassword === '') || (this.state.password !== this.state.repeatPassword) || (this.state.password.length < 6) ?
                                 <Button disabled variant="success" type="submit" onClick={this.registerHandler}>
-                                    Register account
+                                    Создать аккаунт
                                 </Button>
                                 :
                                 <Button variant="success" type="submit" onClick={this.registerHandler}>
-                                    Register account
+                                    Создать аккаунт
                                 </Button>
                             }
                             <hr/>
                             <Button disabled variant="danger" type="submit" style={{marginBottom: '20px'}}>
-                                Register with Google
+                                Зарагестрироваться с Google
                             </Button>
                             <Button disabled variant="primary" type="submit">
-                                Register with Facebook
+                                Зарагестрироваться с Facebook
                             </Button>
                             <hr/>
                             <NavLink to={'/reset'} exact>
-                                Forgot password?
+                                Забыли пароль?
                             </NavLink>
                             <NavLink to={'/login'} exact>
-                                Already have an account? Login!
+                                Уже есть аккаунт? Войти!
                             </NavLink>
                         </Form>
                     </Col>

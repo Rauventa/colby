@@ -85,18 +85,18 @@ class Cabinet extends Component {
 
                 <Modal show={this.state.showModal} onHide={this.closeModal}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Edit person</Modal.Title>
+                        <Modal.Title>Редактировать карточку</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Form>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="name">
-                                    <Form.Label>Name</Form.Label>
+                                    <Form.Label>Имя</Form.Label>
                                     <Form.Control type="text" defaultValue={this.props.personData.name} placeholder="Name" onChange={this.setName} />
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="surname">
-                                    <Form.Label>Surname</Form.Label>
+                                    <Form.Label>Фамилия</Form.Label>
                                     <Form.Control type="text" defaultValue={this.props.personData.surname} placeholder="Surname" onChange={this.setSurname} />
                                 </Form.Group>
                             </Form.Row>
@@ -107,12 +107,12 @@ class Cabinet extends Component {
                             </Form.Group>
 
                             <Form.Group controlId="tel">
-                                <Form.Label>Phone</Form.Label>
+                                <Form.Label>Телефон</Form.Label>
                                 <Form.Control type="tel" defaultValue={this.props.personData.phone} placeholder="Phone" onChange={this.setPhone} />
                             </Form.Group>
 
                             <Form.Group controlId="address">
-                                <Form.Label>Address</Form.Label>
+                                <Form.Label>Адрес</Form.Label>
                                 <Form.Control type="email" defaultValue={this.props.personData.address} placeholder="Address" onChange={this.setAddress} />
                             </Form.Group>
 
@@ -120,47 +120,53 @@ class Cabinet extends Component {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={this.closeModal}>
-                            Close
+                            Закрыть
                         </Button>
                         {validate ?
-                            <Button variant="primary" disabled>Save Changes</Button> :
-                            <Button variant="primary" onClick={this.editHandler}>Save Changes</Button>
+                            <Button variant="primary" disabled>Сохранить изменения</Button> :
+                            <Button variant="primary" onClick={this.editHandler}>Сохранить изменения</Button>
                         }
                     </Modal.Footer>
                 </Modal>
 
                 <div className="Cabinet__header">
-                    <h5>User cabinet</h5>
+                    <h5>Кабинет пользователя</h5>
                     <div>
-                        <NavLink to={'/catalog'} style={{marginRight: '1rem', fontSize: '14px'}}>Back to catalog</NavLink>
+                        <NavLink to={'/catalog'} style={{marginRight: '1rem', fontSize: '14px'}}>В каталог</NavLink>
                         <Button type={'primary'} style={{marginRight: '1rem'}} onClick={this.openModal}><i className="fa fa-pen"/></Button>
-                        <Button type={'danger'} onClick={this.logoutHandler}>Logout</Button>
+                        <Button type={'danger'} onClick={this.logoutHandler}>Выйти</Button>
                     </div>
                 </div>
                 <Descriptions layout="vertical" bordered>
-                    <Descriptions.Item label="Name">{this.props.personData.name + ' ' + this.props.personData.surname}</Descriptions.Item>
+                    <Descriptions.Item label="Имя">{this.props.personData.name + ' ' + this.props.personData.surname}</Descriptions.Item>
                     <Descriptions.Item label="Email">{this.props.personData.email}</Descriptions.Item>
-                    <Descriptions.Item label="Phone">{this.props.personData.phone}</Descriptions.Item>
-                    <Descriptions.Item label="Address" span={2}>{this.props.personData.address}</Descriptions.Item>
-                    <Descriptions.Item label="Status" span={4}>
+                    <Descriptions.Item label="Телефон">{this.props.personData.phone}</Descriptions.Item>
+                    <Descriptions.Item label="Адрес" span={2}>{this.props.personData.address}</Descriptions.Item>
+                    <Descriptions.Item label="Статус" span={4}>
                         <Badge status="processing" text="Online" color={'green'} />
                     </Descriptions.Item>
-                    <Descriptions.Item label="Orders">
+                    <Descriptions.Item label="Заказы">
                         {this.props.orders.map((order, index) => {
-                            return (
-                                <div key={order+index} className={'card'} style={{padding: '1rem', marginBottom: '1rem'}}>
-                                    <p><b>ID:</b> {order.orderId}</p>
-                                    <p><b>Price:</b> {order.totalPrice}$</p>
-                                    {order.orderData.map((item, index) => {
-                                        return (
-                                            <div key={item+index} style={{paddingLeft: '1rem'}}>
-                                                <p><b>Item: {index+1}</b></p>
-                                                <p>{item.name}, {item.color} {item.type} sneakers, {item.size} size.</p>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            )
+                            if (this.props.orders.length !== 0) {
+                                return (
+                                    <div key={order+index} className={'card'} style={{padding: '1rem', marginBottom: '1rem'}}>
+                                        <p><b>ID:</b> {order.orderId}</p>
+                                        <p><b>Цена:</b> {order.totalPrice}$</p>
+                                        {order.orderData.map((item, index) => {
+                                            return (
+                                                <div key={item+index} style={{paddingLeft: '1rem'}}>
+                                                    <p><b>Товар: {index+1}</b></p>
+                                                    <p>{item.name}, {item.color} цвет, {item.type}, {item.size} размера.</p>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                )
+                            } else {
+                                return (
+                                    <p>Пока нет заказов</p>
+                                )
+                            }
                         })}
                     </Descriptions.Item>
                 </Descriptions>

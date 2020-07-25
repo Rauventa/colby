@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Table} from 'antd';
+import {Button, Table} from 'antd';
 import {connect} from "react-redux";
 import {renderData, renderItems} from "../../../store/actions/mainActions";
-import {Button} from "react-bootstrap";
 
 class ModerPanel extends Component {
 
@@ -18,7 +17,7 @@ class ModerPanel extends Component {
         ];
         const columns = [
             {
-                title: 'Name',
+                title: 'Имя',
                 dataIndex: 'name',
                 key: 'name'
             },
@@ -28,28 +27,28 @@ class ModerPanel extends Component {
                 key: 'email'
             },
             {
-                title: 'Phone',
+                title: 'Телефон',
                 dataIndex: 'phone',
                 key: 'phone'
             },
             {
-                title: 'Address',
+                title: 'Адрес',
                 dataIndex: 'address',
                 key: 'address'
             },
             {
-                title: 'Data',
+                title: 'Информация',
                 dataIndex: 'data',
                 key: 'action',
                 render: (text, record) => (
-                    <Button type={'primary'} onClick={() => this.goToUser(record.key)}>Show</Button>
+                    <Button onClick={() => this.goToUser(record.key)}>Показать</Button>
                 ),
             },
         ];
         return (
             <div className={'ModerPanel'}>
                 <div className="AdminPanel__header">
-                    <p>Users list</p>
+                    <p>Список пользователей</p>
                 </div>
                 <Table columns={columns} dataSource={data} />
             </div>

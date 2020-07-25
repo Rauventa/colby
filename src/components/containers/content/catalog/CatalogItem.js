@@ -33,7 +33,7 @@ class CatalogItem extends Component {
                         <div className="row">
                             <div className="col-9">
                                 <p className={'item-name'}>{item.name}</p>
-                                <p className={'item-desc'}>{item.type} shoes, {item.color} color, {item.size} size</p>
+                                <p className={'item-desc'}>{item.type}, {item.color} цвет, {item.size} размер</p>
                             </div>
                             <div className="col-3">
                                 {item.sale === '0' ?

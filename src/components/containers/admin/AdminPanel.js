@@ -11,8 +11,8 @@ class AdminPanel extends Component {
         showAdd: false,
         showEdit: false,
         name: '',
-        type: 'Casual',
-        color: 'Black',
+        type: 'Повседневный',
+        color: 'Черный',
         size: '40',
         sale: '',
         price: '',
@@ -101,7 +101,7 @@ class AdminPanel extends Component {
         try {
             await axios.delete(`https://colby-16cd8.firebaseio.com/items/${id}.json`);
             this.props.renderItems();
-            message.success('Item was successfully deleted');
+            message.success('Товар успешно удален');
         } catch (e) {
             console.log(e)
         }
@@ -119,7 +119,7 @@ class AdminPanel extends Component {
                 url: this.props.url
             });
             this.setState({showAdd: false});
-            message.success('Item was successfully add');
+            message.success('Товар успешно добавлен');
             this.props.renderItems();
         } catch (e) {
             console.log(e)
@@ -139,7 +139,7 @@ class AdminPanel extends Component {
             });
             this.setState({showEdit: false});
             this.props.renderItems();
-            message.success('Item was successfully edited');
+            message.success('Товар успешно отредактирован');
         } catch (e) {
             console.log(e)
         }
@@ -155,30 +155,30 @@ class AdminPanel extends Component {
 
         const columns = [
             {
-                title: 'Name',
+                title: 'Название',
                 dataIndex: 'name',
                 key: 'name'
             },
             {
-                title: 'Type',
+                title: 'Тип',
                 dataIndex: 'type',
                 key: 'type',
                 filters: [
                     {
-                        text: 'Basketball',
-                        value: 'Basketball',
+                        text: 'Баскетбол',
+                        value: 'Баскетбол',
                     },
                     {
-                        text: 'Football',
-                        value: 'Football',
+                        text: 'Футбол',
+                        value: 'Футбол',
                     },
                     {
-                        text: 'Voleyball',
-                        value: 'Voleyball',
+                        text: 'Волейбол',
+                        value: 'Волейбол',
                     },
                     {
-                        text: 'Casual',
-                        value: 'Casual',
+                        text: 'Повседневный',
+                        value: 'Повседневный',
                     },
                 ],
                 filterMultiple: false,
@@ -187,29 +187,29 @@ class AdminPanel extends Component {
                 sortDirections: ['descend', 'ascend'],
             },
             {
-                title: 'Color',
+                title: 'Цвет',
                 dataIndex: 'color',
                 key: 'color',
             },
             {
-                title: 'Size',
+                title: 'Размер',
                 dataIndex: 'size',
                 key: 'size',
             },
             {
-                title: 'Sale',
+                title: 'Скидка',
                 dataIndex: 'sale',
                 key: 'sale',
                 sorter: (a, b) => a.sale - b.sale,
             },
             {
-                title: 'Price $',
+                title: 'Цена $',
                 dataIndex: 'price',
                 key: 'price',
                 sorter: (a, b) => a.price - b.price,
             },
             {
-                title: 'Action',
+                title: 'Действия',
                 key: 'action',
                 render: (text, record) => (
                     <div className={'actions'}>
@@ -223,7 +223,7 @@ class AdminPanel extends Component {
             <div className="AdminPanel">
                 <Modal show={this.state.showAdd} onHide={this.closeAddItem}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Add new item</Modal.Title>
+                        <Modal.Title>Добавить новый товар</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         {this.props.url !== '' ?
@@ -240,34 +240,34 @@ class AdminPanel extends Component {
                         <Form>
                             <Form.Row>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Name</Form.Label>
-                                    <Form.Control type={'text'} placeholder={'Enter name'} onChange={this.changeAddName} />
+                                    <Form.Label>Название</Form.Label>
+                                    <Form.Control type={'text'} placeholder={'Введите название'} onChange={this.changeAddName} />
                                 </Form.Group>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Type</Form.Label>
+                                    <Form.Label>Тип</Form.Label>
                                     <Form.Control as="select" defaultValue={this.state.type} onChange={this.changeAddType}>
-                                        <option value={'Basketball'}>Basketball</option>
-                                        <option value={'Football'}>Football</option>
-                                        <option value={'Voleyball'}>Voleyball</option>
-                                        <option value={'Casual'}>Casual</option>
+                                        <option value={'Баскетбол'}>Баскетбол</option>
+                                        <option value={'Футбол'}>Футбол</option>
+                                        <option value={'Волейбол'}>Волейбол</option>
+                                        <option value={'Повседневный'}>Повседневный</option>
                                     </Form.Control>
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Color</Form.Label>
+                                    <Form.Label>Цвет</Form.Label>
                                     <Form.Control as="select" defaultValue={this.state.color} onChange={this.changeAddColor}>
-                                        <option value={'Black'}>Black</option>
-                                        <option value={'White'}>White</option>
-                                        <option value={'Orange'}>Orange</option>
-                                        <option value={'Green'}>Green</option>
-                                        <option value={'Yellow'}>Yellow</option>
-                                        <option value={'Red'}>Red</option>
-                                        <option value={'Grey'}>Grey</option>
+                                        <option value={'Черный'}>Черный</option>
+                                        <option value={'Белый'}>Белый</option>
+                                        <option value={'Оранжевый'}>Оранжевый</option>
+                                        <option value={'Зеленый'}>Зеленый</option>
+                                        <option value={'Желтый'}>Желтый</option>
+                                        <option value={'Красный'}>Красный</option>
+                                        <option value={'Серый'}>Серый</option>
                                     </Form.Control>
                                 </Form.Group>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Size</Form.Label>
+                                    <Form.Label>Размер</Form.Label>
                                     <Form.Control as="select" defaultValue={this.state.size} onChange={this.changeAddSize} required>
                                         <option value={'38'}>38</option>
                                         <option value={'39'}>39</option>
@@ -282,33 +282,33 @@ class AdminPanel extends Component {
                             </Form.Row>
                             <Form.Row>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Sale</Form.Label>
-                                    <Form.Control type={'number'} placeholder={'Enter sale'} onChange={this.changeAddSale} />
+                                    <Form.Label>Скидка</Form.Label>
+                                    <Form.Control type={'number'} placeholder={'Введите скидку'} onChange={this.changeAddSale} />
                                 </Form.Group>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Price $</Form.Label>
-                                    <Form.Control type={'number'} placeholder={'Enter price'} onChange={this.changeAddPrice} />
+                                    <Form.Label>Цена $</Form.Label>
+                                    <Form.Control type={'number'} placeholder={'Введите цену'} onChange={this.changeAddPrice} />
                                 </Form.Group>
                             </Form.Row>
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={this.closeAddItem}>
-                            Close
+                            Закрыть
                         </Button>
                         {validator ?
                             <Button variant="primary" disabled>
-                                Add new item
+                                Добавить новый товар
                             </Button> :
                             <Button variant="primary" onClick={this.sendAddData}>
-                                Add new item
+                                Добавить новый товар
                             </Button>
                         }
                     </Modal.Footer>
                 </Modal>
                 <Modal show={this.state.showEdit} onHide={this.closeEditItem}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Edit current item</Modal.Title>
+                        <Modal.Title>Редактировать товар</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         {this.props.url !== '' ?
@@ -325,34 +325,34 @@ class AdminPanel extends Component {
                         <Form>
                             <Form.Row>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Name</Form.Label>
-                                    <Form.Control type={'text'} placeholder={'Enter name'} defaultValue={this.state.editName} onChange={this.changeEditName} />
+                                    <Form.Label>Название</Form.Label>
+                                    <Form.Control type={'text'} placeholder={'Введите название'} defaultValue={this.state.editName} onChange={this.changeEditName} />
                                 </Form.Group>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Type</Form.Label>
+                                    <Form.Label>Тип</Form.Label>
                                     <Form.Control as="select" defaultValue={this.state.editType} onChange={this.changeEditType}>
-                                        <option value={'Basketball'}>Basketball</option>
-                                        <option value={'Football'}>Football</option>
-                                        <option value={'Voleyball'}>Voleyball</option>
-                                        <option value={'Casual'}>Casual</option>
+                                        <option value={'Баскетбол'}>Баскетбол</option>
+                                        <option value={'Футбол'}>Футбол</option>
+                                        <option value={'Волейбол'}>Волейбол</option>
+                                        <option value={'Повседневный'}>Повседневный</option>
                                     </Form.Control>
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Color</Form.Label>
+                                    <Form.Label>Цвет</Form.Label>
                                     <Form.Control as="select" defaultValue={this.state.editColor} onChange={this.changeEditColor}>
-                                        <option value={'Black'}>Black</option>
-                                        <option value={'White'}>White</option>
-                                        <option value={'Orange'}>Orange</option>
-                                        <option value={'Green'}>Green</option>
-                                        <option value={'Yellow'}>Yellow</option>
-                                        <option value={'Red'}>Red</option>
-                                        <option value={'Grey'}>Grey</option>
+                                        <option value={'Черный'}>Черный</option>
+                                        <option value={'Белый'}>Белый</option>
+                                        <option value={'Оранжевый'}>Оранжевый</option>
+                                        <option value={'Зеленый'}>Зеленый</option>
+                                        <option value={'Желтый'}>Желтый</option>
+                                        <option value={'Красный'}>Красный</option>
+                                        <option value={'Серый'}>Серый</option>
                                     </Form.Control>
                                 </Form.Group>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Size</Form.Label>
+                                    <Form.Label>Размер</Form.Label>
                                     <Form.Control as="select" defaultValue={this.state.editSize} onChange={this.changeEditSize} required>
                                         <option value={'38'}>38</option>
                                         <option value={'39'}>39</option>
@@ -367,28 +367,28 @@ class AdminPanel extends Component {
                             </Form.Row>
                             <Form.Row>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Sale</Form.Label>
-                                    <Form.Control type={'number'} placeholder={'Enter sale'} defaultValue={this.state.editSale} onChange={this.changeEditSale} />
+                                    <Form.Label>Скидка</Form.Label>
+                                    <Form.Control type={'number'} placeholder={'Введите ссылку'} defaultValue={this.state.editSale} onChange={this.changeEditSale} />
                                 </Form.Group>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Price $</Form.Label>
-                                    <Form.Control type={'number'} placeholder={'Enter price'} defaultValue={this.state.editPrice} onChange={this.changeEditPrice} />
+                                    <Form.Label>Цена $</Form.Label>
+                                    <Form.Control type={'number'} placeholder={'Введите цену'} defaultValue={this.state.editPrice} onChange={this.changeEditPrice} />
                                 </Form.Group>
                             </Form.Row>
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.closeEditItem}>
-                            Close
+                            Закрыть
                         </Button>
                         <Button type="primary" onClick={this.sendEditData}>
-                            Edit item
+                            Редактировать товар
                         </Button>
                     </Modal.Footer>
                 </Modal>
 
                 <div className="AdminPanel__header">
-                    <p>Items list</p>
+                    <p>Список товаров</p>
                     <Button type={'primary'} onClick={this.onAddItem}><i className={'fa fa-plus'} /></Button>
                 </div>
                 <div className="AdminPanel__content">

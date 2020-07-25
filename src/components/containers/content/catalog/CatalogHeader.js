@@ -21,8 +21,8 @@ class CatalogHeader extends Component {
                             </NavLink>
                         </div> :
                         <div className={'links'}>
-                            <NavLink to={'/login'}><p>Sign in</p></NavLink>
-                            <NavLink to={'/reg'}><p>Sign up</p></NavLink>
+                            <NavLink to={'/login'}><p>Войти</p></NavLink>
+                            <NavLink to={'/reg'}><p>Зарегестрироваться</p></NavLink>
                         </div>
                     }
                 </div>
